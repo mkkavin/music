@@ -1,0 +1,441 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #cc3d00 radial-gradient(circle at 60% 100%, #ffa436 5%, #cc3d00 94%);
+  height: 100vh;
+}
+
+.main {
+  height: 8vh;
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent-container {
+  width: 100vw;
+  height: 88vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#toggle-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.music-container {
+  height: 60rem;
+  width: 45rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #f5f6fa;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 .2rem 0.5rem 0.2rem #2f3640;
+          box-shadow: 0 .2rem 0.5rem 0.2rem #2f3640;
+  margin-top: 2rem;
+}
+
+.music-container .img-fluid {
+  border-radius: 50%;
+  height: 30rem;
+  width: 30rem;
+  -webkit-box-shadow: 0 .2rem 1rem 0.1rem #2f3640;
+          box-shadow: 0 .2rem 1rem 0.1rem #2f3640;
+}
+
+#playlist {
+  width: 30rem;
+  height: 40rem;
+  background-color: #f5f6fa;
+  font-size: 2.5rem;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: relative;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  -webkit-box-shadow: 0 .2rem 0.5rem 0.2rem #2f3640;
+          box-shadow: 0 .2rem 0.5rem 0.2rem #2f3640;
+}
+
+.playlist-heading h2 {
+  letter-spacing: 1rem;
+  font-size: 3rem;
+  border-bottom: .2rem solid black;
+  text-align: center;
+}
+
+#playlist-close {
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  bottom: .2rem;
+  cursor: pointer;
+  display: none;
+}
+
+.playlist-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #353b48;
+  -webkit-transition: .05s linear all;
+  transition: .05s linear all;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.playlist-item:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.active-song {
+  color: black;
+  border-radius: 1rem;
+  font-size: 2.8rem;
+  border: .2rem solid;
+  -webkit-animation-name: active-item;
+          animation-name: active-item;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+#progress-div {
+  width: 98%;
+  border: .1rem solid black;
+  height: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+#progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #cc3d00;
+  width: 0%;
+  height: 100%;
+  -webkit-transition: .2s ease-out all;
+  transition: .2s ease-out all;
+  border-radius: 1rem;
+}
+
+.control-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 95%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.control-container .fa {
+  font-size: 2.5rem;
+  color: #1e272e;
+  -webkit-transition: linear .2s all;
+  transition: linear .2s all;
+}
+
+.control-container .fa:hover {
+  cursor: pointer;
+  color: grey;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.music-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 65%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  
+}
+
+.music-controls #play {
+  font-size: 5.5rem;
+}
+
+.volume-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#volume-div {
+  margin-left: .4rem;
+  width: 5rem;
+  height: 1rem;
+  background-color: #ccc2c2;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+#volume-bar {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+  background-color: #2f3640;
+  border-radius: 1rem;
+}
+
+.animate-image {
+  -webkit-animation-name: rotate-image;
+          animation-name: rotate-image;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.animate-background {
+  -webkit-animation-name: music-background;
+          animation-name: music-background;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate-image {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-image {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/*#cc3d00 radial-gradient(circle at 60% 100%,#ffa436 5%,#cc3d00 94%);
+ 	radial-gradient(circle at 60% 100%,#74b9ff 5%, #0984e3 94%)
+	radial-gradient(circle at 60% 100%,#a29bfe 5%, #6c5ce7 94%)
+	radial-gradient(circle at 60% 100%,#576574 5%, #222f3e 94%)
+	radial-gradient(circle at 60% 100%,#1dd1a1 5%, #10ac84 94%) */
+@-webkit-keyframes music-background {
+  0% {
+    background-color: #cc3d00;
+  }
+  25% {
+    background-color: #cc3d00;
+  }
+  50% {
+    background-color: #6c5ce7;
+  }
+  75% {
+    background-color: #222f3e;
+  }
+  100% {
+    background-color: #10ac84;
+  }
+}
+@keyframes music-background {
+  0% {
+    background-color: #cc3d00;
+  }
+  25% {
+    background-color: #cc3d00;
+  }
+  50% {
+    background-color: #6c5ce7;
+  }
+  75% {
+    background-color: #222f3e;
+  }
+  100% {
+    background-color: #10ac84;
+  }
+}
+
+@-webkit-keyframes active-item {
+  0% {
+    color: #cc3d00;
+  }
+  25% {
+    color: #0984e3;
+  }
+  50% {
+    color: #6c5ce7;
+  }
+  75% {
+    color: #222f3e;
+  }
+  100% {
+    color: #10ac84;
+  }
+}
+
+@keyframes active-item {
+  0% {
+    color: #cc3d00;
+  }
+  25% {
+    color: #0984e3;
+  }
+  50% {
+    color: #6c5ce7;
+  }
+  75% {
+    color: #222f3e;
+  }
+  100% {
+    color: #10ac84;
+  }
+}
+
+@media (max-width: 998px) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+  #toggle-menu {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  #playlist-close {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  #playlist {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    border-radius: 0%;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 52%;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 46%;
+  }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 40%;
+  }
+}
+/*# sourceMappingURL=Music Player.css.map */
